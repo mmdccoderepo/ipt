@@ -1,5 +1,5 @@
 # ipt
 
-week-1-2-crud
+week-3-validation-and-relationships
 
-[Postman results](https://drive.google.com/drive/folders/1p0mhQaZ1vEVitmxaspCFtBUsHbyypJtL?usp=sharing)
+[Postman results](https://drive.google.com/drive/folders/1-ujCBZ6WadqjI9MAqbn4rZBD-mZ_RZui?usp=sharing)
