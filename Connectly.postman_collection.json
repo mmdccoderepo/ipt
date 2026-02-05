@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "694e9e7c-5d3f-41ab-91fc-9081720dead1",
-    "name": "Connectly",
+    "name": "Connectly week-3-validation-and-relationships",
     "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "51669205",
@@ -29,18 +29,89 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{BaseURL}}posts/users/",
+          "raw": "http://localhost:8000/posts/users/",
+          "protocol": "http",
           "host": [
-            "{{BaseURL}}posts"
+            "localhost"
           ],
+          "port": "8000",
           "path": [
+            "posts",
             "users",
             ""
           ]
         },
         "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
       },
-      "response": []
+      "response": [
+        {
+          "name": "Retrieve all users",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/posts/users/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "posts",
+                "users",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Thu, 05 Feb 2026 15:55:34 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.3"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "2"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[]"
+        }
+      ]
     },
     {
       "name": "Retrieve all posts",
@@ -63,18 +134,89 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{BaseURL}}posts/posts/",
+          "raw": "http://localhost:8000/posts/posts/",
+          "protocol": "http",
           "host": [
-            "{{BaseURL}}posts"
+            "localhost"
           ],
+          "port": "8000",
           "path": [
+            "posts",
             "posts",
             ""
           ]
         },
         "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
       },
-      "response": []
+      "response": [
+        {
+          "name": "Retrieve all posts",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/posts/posts/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "posts",
+                "posts",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Thu, 05 Feb 2026 15:57:02 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.12.3"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "2"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[]"
+        }
+      ]
     },
     {
       "name": "Retrieve all comments",
@@ -97,11 +239,14 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{BaseURL}}posts/comments/",
+          "raw": "http://localhost:8000/posts/comments/",
+          "protocol": "http",
           "host": [
-            "{{BaseURL}}posts"
+            "localhost"
           ],
+          "port": "8000",
           "path": [
+            "posts",
             "comments",
             ""
           ]
@@ -133,7 +278,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"username\": \"newuser3\",\n    \"email\": \"newuser3@example.com\"\n}\n",
+          "raw": "{\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\"\n}\n",
           "options": {
             "raw": {
               "language": "json"
@@ -141,11 +286,14 @@
           }
         },
         "url": {
-          "raw": "{{BaseURL}}posts/users/",
+          "raw": "http://localhost:8000/posts/users/",
+          "protocol": "http",
           "host": [
-            "{{BaseURL}}posts"
+            "localhost"
           ],
+          "port": "8000",
           "path": [
+            "posts",
             "users",
             ""
           ]
@@ -160,7 +308,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"username\": \"newuser3\",\n    \"email\": \"newuser3@example.com\"\n}\n",
+              "raw": "{\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\"\n}\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -168,11 +316,14 @@
               }
             },
             "url": {
-              "raw": "{{BaseURL}}posts/users/",
+              "raw": "http://localhost:8000/posts/users/",
+              "protocol": "http",
               "host": [
-                "{{BaseURL}}posts"
+                "localhost"
               ],
+              "port": "8000",
               "path": [
+                "posts",
                 "users",
                 ""
               ]
@@ -184,7 +335,7 @@
           "header": [
             {
               "key": "Date",
-              "value": "Mon, 02 Feb 2026 04:13:06 GMT"
+              "value": "Thu, 05 Feb 2026 15:56:31 GMT"
             },
             {
               "key": "Server",
@@ -208,7 +359,7 @@
             },
             {
               "key": "Content-Length",
-              "value": "104"
+              "value": "100"
             },
             {
               "key": "X-Content-Type-Options",
@@ -224,7 +375,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"id\": 3,\n    \"username\": \"newuser3\",\n    \"email\": \"newuser3@example.com\",\n    \"created_at\": \"2026-02-02T04:13:06.831709Z\"\n}"
+          "body": "{\n    \"id\": 6,\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\",\n    \"created_at\": \"2026-02-05T15:56:31.231832Z\"\n}"
         }
       ]
     },
@@ -251,7 +402,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"title\": \"Another test post 3\",\n    \"content\": \"Another test post content 3\",\n    \"author\": 1\n}\n",
+          "raw": "{\n    \"title\": \"This is a test post\",\n    \"content\": \"This is a test post\",\n    \"author\": 6\n}\n",
           "options": {
             "raw": {
               "language": "json"
@@ -259,11 +410,14 @@
           }
         },
         "url": {
-          "raw": "{{BaseURL}}posts/posts/",
+          "raw": "http://localhost:8000/posts/posts/",
+          "protocol": "http",
           "host": [
-            "{{BaseURL}}posts"
+            "localhost"
           ],
+          "port": "8000",
           "path": [
+            "posts",
             "posts",
             ""
           ]
@@ -278,7 +432,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"title\": \"Another test post 3\",\n    \"content\": \"Another test post content 3\",\n    \"author\": 1\n}\n",
+              "raw": "{\n    \"title\": \"This is a test post\",\n    \"content\": \"This is a test post\",\n    \"author\": 6\n}\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -286,11 +440,14 @@
               }
             },
             "url": {
-              "raw": "{{BaseURL}}posts/posts/",
+              "raw": "http://localhost:8000/posts/posts/",
+              "protocol": "http",
               "host": [
-                "{{BaseURL}}posts"
+                "localhost"
               ],
+              "port": "8000",
               "path": [
+                "posts",
                 "posts",
                 ""
               ]
@@ -302,7 +459,7 @@
           "header": [
             {
               "key": "Date",
-              "value": "Mon, 02 Feb 2026 04:12:48 GMT"
+              "value": "Thu, 05 Feb 2026 15:58:11 GMT"
             },
             {
               "key": "Server",
@@ -326,7 +483,7 @@
             },
             {
               "key": "Content-Length",
-              "value": "116"
+              "value": "108"
             },
             {
               "key": "X-Content-Type-Options",
@@ -342,7 +499,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"id\": 3,\n    \"content\": \"Another test post content 3\",\n    \"author\": 1,\n    \"created_at\": \"2026-02-02T04:12:48.136910Z\",\n    \"comments\": []\n}"
+          "body": "{\n    \"id\": 4,\n    \"content\": \"This is a test post\",\n    \"author\": 6,\n    \"created_at\": \"2026-02-05T15:58:11.585077Z\",\n    \"comments\": []\n}"
         }
       ]
     },
@@ -369,7 +526,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"text\": \"Test comment\",\n    \"author\": 1,\n    \"post\": 1\n}\n",
+          "raw": "{\n    \"text\": \"This is a comment\",\n    \"author\": 6,\n    \"post\": 4\n}\n",
           "options": {
             "raw": {
               "language": "json"
@@ -377,11 +534,14 @@
           }
         },
         "url": {
-          "raw": "{{BaseURL}}posts/comments/",
+          "raw": "http://localhost:8000/posts/comments/",
+          "protocol": "http",
           "host": [
-            "{{BaseURL}}posts"
+            "localhost"
           ],
+          "port": "8000",
           "path": [
+            "posts",
             "comments",
             ""
           ]
@@ -396,7 +556,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"text\": \"Test comment\",\n    \"author\": 1,\n    \"post\": 1\n}\n",
+              "raw": "{\n    \"text\": \"This is a comment\",\n    \"author\": 6,\n    \"post\": 4\n}\n",
               "options": {
                 "raw": {
                   "language": "json"
@@ -404,11 +564,14 @@
               }
             },
             "url": {
-              "raw": "{{BaseURL}}posts/comments/",
+              "raw": "http://localhost:8000/posts/comments/",
+              "protocol": "http",
               "host": [
-                "{{BaseURL}}posts"
+                "localhost"
               ],
+              "port": "8000",
               "path": [
+                "posts",
                 "comments",
                 ""
               ]
@@ -420,7 +583,7 @@
           "header": [
             {
               "key": "Date",
-              "value": "Mon, 02 Feb 2026 04:12:11 GMT"
+              "value": "Thu, 05 Feb 2026 15:59:53 GMT"
             },
             {
               "key": "Server",
@@ -444,7 +607,7 @@
             },
             {
               "key": "Content-Length",
-              "value": "93"
+              "value": "98"
             },
             {
               "key": "X-Content-Type-Options",
@@ -460,7 +623,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"id\": 1,\n    \"text\": \"Test comment\",\n    \"author\": 1,\n    \"post\": 1,\n    \"created_at\": \"2026-02-02T04:12:11.664451Z\"\n}"
+          "body": "{\n    \"id\": 2,\n    \"text\": \"This is a comment\",\n    \"author\": 6,\n    \"post\": 4,\n    \"created_at\": \"2026-02-05T15:59:53.511417Z\"\n}"
         }
       ]
     }
