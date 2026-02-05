@@ -5,13 +5,14 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Post, User
 
 
-def list_users(request) -> JsonResponse:
+def get_users(request) -> JsonResponse:
     if request.method != "GET":
         return JsonResponse({"detail": "Method not allowed"}, status=405)
-    users = list(
-        User.objects.values("id", "username", "email", "bio", "profile_picture")
-    )
-    return JsonResponse({"users": users}, status=200)
+    try:
+        users = list(User.objects.values("id", "username", "email", "created_at"))
+        return JsonResponse(users, safe=False)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
 
 
 @csrf_exempt
@@ -22,40 +23,36 @@ def create_user(request) -> JsonResponse:
         payload = json.loads(request.body or "{}")
         username = payload["username"]
         email = payload["email"]
-        bio = payload.get("bio", "")
-    except (KeyError, json.JSONDecodeError):
-        return JsonResponse({"detail": "Invalid payload"}, status=400)
 
-    user = User.objects.create(username=username, email=email, bio=bio)
-    return JsonResponse(
-        {
-            "id": user.id,
-            "username": user.username,
-            "email": user.email,
-            "bio": user.bio,
-        },
-        status=201,
-    )
+        user = User.objects.create(username=username, email=email)
+        return JsonResponse(
+            {"id": user.id, "message": "User created successfully"}, status=201
+        )
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=400)
 
 
-def list_posts(request) -> JsonResponse:
+def get_posts(request) -> JsonResponse:
     if request.method != "GET":
         return JsonResponse({"detail": "Method not allowed"}, status=405)
-    posts = list(
-        Post.objects.select_related("author")
-        .all()
-        .values(
-            "id",
-            "title",
-            "content",
-            "created_at",
-            "updated_at",
-            "author_id",
-            "author__username",
-            "author__email",
+    try:
+        posts = list(
+            Post.objects.select_related("author")
+            .all()
+            .values(
+                "id",
+                "title",
+                "content",
+                "created_at",
+                "updated_at",
+                "author_id",
+                "author__username",
+                "author__email",
+            )
         )
-    )
-    return JsonResponse({"posts": posts}, status=200)
+        return JsonResponse(posts, safe=False)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
 
 
 @csrf_exempt
@@ -67,23 +64,12 @@ def create_post(request) -> JsonResponse:
         author_id = payload["author_id"]
         title = payload["title"]
         content = payload["content"]
-    except (KeyError, json.JSONDecodeError):
-        return JsonResponse({"detail": "Invalid payload"}, status=400)
-
-    try:
         author = User.objects.get(pk=author_id)
+        post = Post.objects.create(title=title, content=content, author=author)
+        return JsonResponse(
+            {"id": post.id, "message": "Post created successfully"}, status=201
+        )
     except User.DoesNotExist:
         return JsonResponse({"detail": "Author not found"}, status=404)
-
-    post = Post.objects.create(author=author, title=title, content=content)
-    return JsonResponse(
-        {
-            "id": post.id,
-            "title": post.title,
-            "content": post.content,
-            "author_id": author.id,
-            "created_at": post.created_at,
-            "updated_at": post.updated_at,
-        },
-        status=201,
-    )
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=400)
