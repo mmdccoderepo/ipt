@@ -1,0 +1,871 @@
+{
+  "info": {
+    "_postman_id": "985d579e-f477-4d4b-9a5f-b01c6481e229",
+    "name": "Connectly week-4-security",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51669205",
+    "_collection_link": "https://go.postman.co/collection/51669205-985d579e-f477-4d4b-9a5f-b01c6481e229?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Retrieve all posts",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token cd1e64a74d98cc8e36bf7e7e5d78438250c831fd",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:8000/posts/posts/",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "posts",
+            "posts",
+            ""
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Retrieve all posts",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token cd1e64a74d98cc8e36bf7e7e5d78438250c831fd",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://localhost:8000/posts/posts/",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "posts",
+                "posts",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.5 Python/3.11.14"
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 06 Feb 2026 13:42:05 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "110"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 1,\n        \"content\": \"This is a test post\",\n        \"author\": 1,\n        \"created_at\": \"2026-02-06T06:00:46.046468Z\",\n        \"comments\": []\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Retrieve all posts (anonymous)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token cd1e64a74d98cc8e36bf7e7e5d78438250c831fd",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:8000/posts/posts/1/",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "posts",
+            "posts",
+            "1",
+            ""
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Retrieve all posts (anonymous)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token cd1e64a74d98cc8e36bf7e7e5d78438250c831fd",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "https://localhost:8000/posts/posts/1/",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "posts",
+                "posts",
+                "1",
+                ""
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.5 Python/3.11.14"
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 06 Feb 2026 13:46:46 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "WWW-Authenticate",
+              "value": "Token"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "58"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"detail\": \"Authentication credentials were not provided.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Retrieve post detail (author)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token cd1e64a74d98cc8e36bf7e7e5d78438250c831fd",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:8000/posts/posts/1/",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "posts",
+            "posts",
+            "1",
+            ""
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Retrieve post detail (author)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token cd1e64a74d98cc8e36bf7e7e5d78438250c831fd",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://localhost:8000/posts/posts/1/",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "posts",
+                "posts",
+                "1",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "",
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.5 Python/3.11.14"
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 06 Feb 2026 13:45:15 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "33"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"content\": \"This is a test post\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Retrieve post detail (~author)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Token c29bb8031a0aa7ee3f348efd1ac70f8cc9e8d817",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:8000/posts/posts/1/",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "posts",
+            "posts",
+            "1",
+            ""
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Retrieve post detail (~author)",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token c29bb8031a0aa7ee3f348efd1ac70f8cc9e8d817",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://localhost:8000/posts/posts/1/",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "posts",
+                "posts",
+                "1",
+                ""
+              ]
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.5 Python/3.11.14"
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 06 Feb 2026 14:07:18 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "63"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"detail\": \"You do not have permission to perform this action.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create a new user",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "username",
+              "value": "testuser",
+              "type": "text",
+              "uuid": "49ff3031-7f22-4f8c-89ac-3f489c994985"
+            },
+            {
+              "key": "email",
+              "value": "testuser@example.com",
+              "type": "text",
+              "uuid": "ff5ff82a-2d2e-4232-bdd7-9c9424a9a452"
+            },
+            {
+              "key": "password",
+              "value": "secure_pass123",
+              "type": "text",
+              "uuid": "e31e773c-0bc0-46ac-b2fe-98348f0d9197"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://localhost:8000/posts/users/",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "posts",
+            "users",
+            ""
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": [
+        {
+          "name": "Create a new user",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "testuser",
+                  "type": "text",
+                  "uuid": "49ff3031-7f22-4f8c-89ac-3f489c994985"
+                },
+                {
+                  "key": "email",
+                  "value": "testuser@example.com",
+                  "type": "text",
+                  "uuid": "ff5ff82a-2d2e-4232-bdd7-9c9424a9a452"
+                },
+                {
+                  "key": "password",
+                  "value": "secure_pass123",
+                  "type": "text",
+                  "uuid": "e31e773c-0bc0-46ac-b2fe-98348f0d9197"
+                }
+              ],
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:8000/posts/users/",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "posts",
+                "users",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.5 Python/3.11.14"
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 06 Feb 2026 13:41:23 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "105"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 2,\n    \"username\": \"testuser\",\n    \"email\": \"testuser@example.com\",\n    \"date_joined\": \"2026-02-06T13:41:23.283164Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "username",
+              "value": "new_user",
+              "type": "text",
+              "uuid": "3c1faabf-2a82-4e4a-9cf0-a469d6874155"
+            },
+            {
+              "key": "password",
+              "value": "secure_pass123",
+              "type": "text",
+              "uuid": "4c15fce2-64b7-4d29-8d60-24bb35241b40"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://localhost:8000/posts/login/?",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "posts",
+            "login",
+            ""
+          ],
+          "query": [
+            {
+              "key": "",
+              "value": null,
+              "type": "text"
+            }
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": [
+        {
+          "name": "Login",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "username",
+                  "value": "new_user",
+                  "type": "text",
+                  "uuid": "3c1faabf-2a82-4e4a-9cf0-a469d6874155"
+                },
+                {
+                  "key": "password",
+                  "value": "secure_pass123",
+                  "type": "text",
+                  "uuid": "4c15fce2-64b7-4d29-8d60-24bb35241b40"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://localhost:8000/posts/login/?",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "posts",
+                "login",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Server",
+              "value": "Werkzeug/3.1.5 Python/3.11.14"
+            },
+            {
+              "key": "Date",
+              "value": "Fri, 06 Feb 2026 14:10:58 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, Cookie"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "52"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains; preload"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "sessionid=zt0btm8usr42yn7n48vwb1w8bo1nn13j; expires=Fri, 20 Feb 2026 14:10:58 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax; Secure"
+            },
+            {
+              "key": "Connection",
+              "value": "close"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"cd1e64a74d98cc8e36bf7e7e5d78438250c831fd\"\n}"
+        }
+      ]
+    }
+  ]
+}

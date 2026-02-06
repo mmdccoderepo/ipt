@@ -4,13 +4,16 @@ from .models import Post, Comment
 
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(
-        write_only=True, required=True, style={"input_type": "password"}
-    )
-
     class Meta:
         model = User
-        fields = ["id", "username", "email", "date_joined", "password"]
+        fields = [
+            "id",
+            "username",
+            "email",
+            "date_joined",
+            "password",
+        ]
+        extra_kwargs = {"password": {"write_only": True, "required": True}}
 
     def create(self, validated_data):
         password = validated_data.pop("password")

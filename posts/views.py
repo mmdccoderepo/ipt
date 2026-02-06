@@ -28,6 +28,7 @@ class LoginView(APIView):
                 {"detail": "Invalid credentials."}, status=status.HTTP_400_BAD_REQUEST
             )
         token, _ = Token.objects.get_or_create(user=user)
+        request.session["token"] = token.key  # Store token in session cookie
         return Response({"token": token.key}, status=status.HTTP_200_OK)
 
 
@@ -60,6 +61,16 @@ class PostListCreate(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PostDetailView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated, IsPostAuthor]
+
+    def get(self, request, pk):
+        post = Post.objects.get(pk=pk)
+        self.check_object_permissions(request, post)
+        return Response({"content": post.content})
 
 
 class CommentListCreate(APIView):
