@@ -12,7 +12,7 @@ A simple Django + Django REST Framework project for learning CRUD, validation/re
 ### Setup
 
 ```bash
-cd connectly_project
+cd <project-root>
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -65,14 +65,14 @@ Shared results (Google Drive):
 
 ## Development Notes
 
-- Project settings: `connectly_project/connectly_project/settings.py`
+- Project settings: `<project-root>/connectly_project/settings.py`
 - App code: `connectly_project/posts/`
-- URLs: `connectly_project/connectly_project/urls.py` and `connectly_project/posts/urls.py`
+- URLs: `<project-root>/connectly_project/urls.py` and `connectly_project/posts/urls.py`
 
 ### Run Tests
 
 ```bash
-cd connectly_project
+cd <project-root>
 source .venv/bin/activate
 python manage.py test
 ```
@@ -82,7 +82,7 @@ python manage.py test
 Black is included; to format:
 
 ```bash
-cd connectly_project
+cd <project-root>
 source .venv/bin/activate
 black .
 ```
